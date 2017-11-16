@@ -14,11 +14,11 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
-//= require bootstrap-datepicker
 //= require chart-data
 //= require chart.min
-//= require custom
 //= require easypiechart-data
 //= require easypiechart
 //= require html5shiv.min
 //= require respond.min
+//= require custom
+//= require bootstrap-datepicker
