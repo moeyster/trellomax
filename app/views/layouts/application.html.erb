@@ -14,6 +14,11 @@
   </head>
 
   <body>
+    <% if params[:controller] == "dashboards" %>
+      <%= render "layouts/dashboard_nav" %>
+    <% else %>
+      <%= render "layouts/nav" %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
