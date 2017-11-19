@@ -14,11 +14,13 @@
   </head>
 
   <body>
+    <!-- navigation bar left or top  -->
     <% if params[:controller] == "dashboards" %>
       <%= render "layouts/dashboard_nav" %>
     <% else %>
       <%= render "layouts/nav" %>
     <% end %>
+
     <%= yield %>
   </body>
 </html>

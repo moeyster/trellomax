@@ -1,0 +1,11 @@
+<% if flash.present? %>
+  <%- flash.each do |name, msg| -%>
+    <% name = name.eql?("notice") ? "info" : name %>
+    <% name = (name.include?("alert") || name.include?("error")) ? "warning" : name %>
+    <div class="alert alert-<%= name %> alert-dismissable" role="alert">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    </div>
+  <%- end -%>
+  <br />
+<% end %>

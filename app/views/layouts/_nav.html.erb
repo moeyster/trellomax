@@ -1,11 +1,15 @@
 <nav class="navbar sticky-top navbar-light bg-faded">
 	<ul class="nav justify-content-end">
-		<a class="navbar-brand mr-auto" href="#">Exello</a>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Sign In</a>
-	  </li>
-		<li class="nav-item">
-			<a class="btn btn-primary" href="#">Register</a>
-		</li>
+		<%= link_to "Exello", root_path, class: "navbar-brand mr-auto" %>
+		<% if current_user.present? %>
+			<%= render "layouts/nav_avatar" %>
+		<% else %>
+			<li class="nav-item">
+				<%= link_to "Login", new_user_session_path, class: "nav-link" %>
+			</li>
+			<li class="nav-item">
+				<%= link_to "Register", new_user_registration_path, class: "btn btn-primary" %>
+			</li>
+		<% end %>
 	</ul>
 </nav>

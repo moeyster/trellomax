@@ -13,13 +13,12 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
 
 development:
   <<: *default
-  database: rails5-starter-kit_development
+  database: <%= ENV["DATABASE_NAME"] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +48,6 @@ test:
 #
 production:
   <<: *default
-  database: rails5-starter-kit_production
-  username: rails5-starter-kit
-  password: <%= ENV['RAILS5-STARTER-KIT_DATABASE_PASSWORD'] %>
+  database: <%= ENV["DATABASE_NAME"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
