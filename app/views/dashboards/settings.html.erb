@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <main class="col-xs-12 col-sm-8 offset-sm-4 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2 pt-3 pl-4" style="margin-top:50px;">
+      <%= render "layouts/notice" %>
+      <h4>Update Trello Settings</h4>
+      <%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+        <div class="form-group">
+          <%= f.input :trello_key, autofocus: true, required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.input :trello_token, required: true %>
+        </div>
+
+        <div>
+          <%= f.submit "Save", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </main>
+  </div>
+</div>

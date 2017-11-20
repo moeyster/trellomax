@@ -9,8 +9,11 @@
 
   <ul class="nav nav-pills flex-column sidebar-nav">
     <li class="nav-item">
-      <%= link_to dashboards_path, method: :get, class: "nav-link" do %>
+      <%= link_to dashboards_path, class: "nav-link" do %>
         <em class="fa fa-dashboard"></em> Dashboard
+      <% end %>
+      <%= link_to settings_dashboards_path, class: "nav-link" do %>
+        <em class="fa fa-cog"></em> Settings
       <% end %>
     </li>
   </ul>
