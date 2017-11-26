@@ -72,3 +72,10 @@ gem 'devise'
 
 # Form tools
 gem 'simple_form'
+
+# For uploading files directly to rails
+gem 'aws-sdk', '~> 3'
+
+# For background workers
+gem 'resque'
+gem "redis", "<4"

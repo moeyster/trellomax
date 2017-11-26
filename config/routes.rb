@@ -5,6 +5,12 @@ Rails.application.routes.draw do
       get :settings
     end
   end
+
+  resources :boards do
+    collection do
+      get :export
+    end
+  end
   resources :users
   root 'static_pages#index'
 end
