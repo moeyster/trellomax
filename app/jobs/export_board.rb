@@ -12,7 +12,7 @@ class ExportBoard
       start_time = Time.now
 
       # Get list names
-      uri = URI.parse("https://api.trello.com/1/boards/5576551ed040b2880644fd31/lists?token=#{user.trello_token}&key=#{user.trello_key}&fields=id,name")
+      uri = URI.parse("https://api.trello.com/1/boards/#{board_id}/lists?token=#{user.trello_token}&key=#{user.trello_key}&fields=id,name")
       response = Net::HTTP.get_response(uri)
       if response.is_a?(Net::HTTPSuccess)
         lists = JSON.parse(response.body)
