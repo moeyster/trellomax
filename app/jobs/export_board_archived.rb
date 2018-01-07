@@ -1,4 +1,4 @@
-class ExportBoard
+class ExportBoardArchived
   @queue = :export_board_queue
 
   def self.perform(user_id, board_id)
@@ -8,7 +8,7 @@ class ExportBoard
     board = Board.find_by(trello_board_id: board_id)
 
     if user.present?
-      puts "OK: Started board export (open)"
+      puts "OK: Started board export (archived)"
       start_time = Time.now
 
       # Get list names
@@ -20,11 +20,11 @@ class ExportBoard
 
       # Get cards
       if user.trello_member_id.present?
-        uri = URI.parse("https://api.trello.com/1/boards/#{board_id}/cards/?fields=idList,name,due,labels,idShort,shortUrl,closed&members=true&member_fields=fullName&key=#{user.trello_key}&token=#{user.trello_token}&board_lists=open&filter=visible")
+        uri = URI.parse("https://api.trello.com/1/boards/#{board_id}/cards/?fields=idList,name,due,labels,idShort,shortUrl,closed&members=true&member_fields=fullName&key=#{user.trello_key}&token=#{user.trello_token}&board_lists=open&filter=closed")
         response = Net::HTTP.get_response(uri)
 
         if response.is_a?(Net::HTTPSuccess)
-          filename = "#{board.name}.csv"
+          filename = "#{board.name} (Archived).csv"
           data = JSON.parse(response.body)
 
           csv_string = CSV.open(Rails.root.join('tmp', filename), "w") do |csv|

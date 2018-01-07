@@ -12,8 +12,19 @@
               <%= board.date_last_activity.strftime("%d %B %Y %r") %>
             </p>
           </div>
-          <div class="col-md-2">
-            <%= link_to "Export", export_boards_path(user_id: current_user.id, board_id: board.trello_board_id) %>
+          <div class="col-md-3">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Action
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <p class="dropdown-header" style="padding-top: 0px;"><%= board.name %></p>
+                <hr style="margin:0px; /">
+                <%= link_to "Export Open", export_boards_path(user_id: current_user.id, board_id: board.trello_board_id), class: "dropdown-item" %>
+                <%= link_to "Export Archived", export_archived_boards_path(user_id: current_user.id, board_id: board.trello_board_id), class: "dropdown-item" %>
+              </div>
+            </div>
+
           </div>
         </div>
       <% end %>

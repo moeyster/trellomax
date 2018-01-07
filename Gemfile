@@ -78,4 +78,4 @@ gem 'aws-sdk', '~> 3'
 
 # For background workers
 gem 'resque'
-gem "redis", "<4"
+gem 'redis', '<4'

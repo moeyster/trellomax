@@ -326,9 +326,12 @@ p {
   list-style: none; }
 
 .alert {
-  color: #fff; }
-  .alert a {
-    color: #fff !important; }
+  color: #7c7c7c;
+  border: none;
+}
+
+.alert a {
+  color: #444444 !important; }
 
 .no-left-margin {
   margin-left: 0; }

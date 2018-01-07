@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :boards do
     collection do
       get :export
+      get :export_archived
     end
   end
   resources :users
