@@ -4,6 +4,10 @@ Rails.application.routes.draw do
     collection do
       get :settings
     end
+
+    member do
+      get :get_download_url
+    end
   end
 
   resources :boards do

@@ -2,7 +2,7 @@
   <div class="row">
     <main class="col-xs-12 col-sm-8 offset-sm-4 col-lg-9 offset-lg-3 col-xl-10 offset-xl-2 pt-3 pl-4" style="margin-top:50px;">
       <%= render "layouts/notice" %>
-      <h4>Update Trello Settings</h4>
+      <h4>Update Trello Settings</h4> You can get your Trello key and token here <%= link_to "Trello API Key & Token", "https://trello.com/app-key/", target: "_blank" %>
       <%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
         <div class="form-group">
           <%= f.input :trello_key, autofocus: true, required: true %>

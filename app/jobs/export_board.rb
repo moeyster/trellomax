@@ -57,12 +57,13 @@ class ExportBoard
           end
 
           aws_upload   = AwsService.upload_csv_file(filename)
-          download_url = AwsService.get_presigned_url(aws_upload.key)
+          @download_url = AwsService.get_presigned_url(aws_upload.key)
           end_time = Time.now
           diff = (end_time - start_time) * 1000
-          puts "OK: Download URL: #{download_url}"
+          puts "OK: Download URL: #{@download_url}"
           puts "OK: Completed export in #{diff} ms. Nothing to do. Yay!"
 
+          DashboardController.render 'dashboards/get_download_url'
         end
       end
     else

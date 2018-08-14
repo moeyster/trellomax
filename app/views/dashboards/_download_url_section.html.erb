@@ -1,0 +1,10 @@
+<% download = Download.last %>
+<% if download.present? && download.created_at < DateTime.now + 1.day %>
+  <div id="download-url-section" class="mb-4">
+    <div class="col-md-12 download-url-section">
+      <p style="color: #fff;">
+        Last CSV Export Download url: <span id="download-url"><%= link_to "Download CSV", download.url ,class: "link" %></span>
+      </p>
+    </div>
+  </div>
+<% end %>

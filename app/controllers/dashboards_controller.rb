@@ -7,4 +7,7 @@ class DashboardsController < ApplicationController
   def settings
     @user = current_user
   end
+
+  def get_download_url
+  end
 end

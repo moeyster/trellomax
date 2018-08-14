@@ -9,7 +9,7 @@ class AwsService
     )
 
     obj = s3.bucket(ENV['S3_BUCKET']).object(filename)
-    obj.upload_file(File.open(Rails.root.join('tmp',filename)), acl:'private', content_type: 'text/csv')
+    obj.upload_file(File.open(Rails.root.join('tmp',filename)), content_type: 'text/csv')
 
     return obj
   end
