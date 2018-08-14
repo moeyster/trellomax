@@ -47,5 +47,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  url: <%= ENV["JAWSDB_URL"] %>
+  url: <%= ENV["DATABASE_NAME"] %>
+  adapter: mysql2
