@@ -50,3 +50,5 @@ production:
   url: <%= ENV["DATABASE_NAME"] %>
   adapter: mysql2
   socket: /tmp/mysql.sock
+  encoding: utf8
+  pool: <%= ENV["RAILS_MAX_THREADS"] || 5 %>
