@@ -59,7 +59,6 @@ group :development do
 end
 
 group :production, :staging, :sandbox do
-  gem 'therubyracer'
   gem 'rails_12factor'
 end
 
