@@ -18,8 +18,4 @@ Rails.application.routes.draw do
   end
   resources :users
   root 'static_pages#index'
-
-  authenticate :user, lambda {|u| u.role >= 10 } do
-    mount Resque::Server.new, :at => "/resque"
-  end
 end
