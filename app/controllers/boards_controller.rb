@@ -2,7 +2,7 @@ class BoardsController < ApplicationController
   def export
     # Resque.enqueue(ExportBoard, current_user.id, params[:board_id])
 
-    require 'CSV'
+    require 'csv'
     board_id = params[:board_id]
     user = User.find_by(id: current_user.id)
     board = Board.find_by(trello_board_id: board_id)
