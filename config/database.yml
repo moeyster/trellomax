@@ -49,3 +49,4 @@ test:
 production:
   url: <%= ENV["DATABASE_NAME"] %>
   adapter: mysql2
+  socket: /tmp/mysql.sock
