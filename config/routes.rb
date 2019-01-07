@@ -16,6 +16,16 @@ Rails.application.routes.draw do
       get :export_archived
     end
   end
-  resources :users
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
+  resources :users do
+    member do
+      patch :update
+    end
+  end
+
   root 'static_pages#index'
 end
