@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
 
       # Get cards
       if user.trello_member_id.present?
-        uri = URI.parse("https://api.trello.com/1/boards/#{board_id}/cards/?fields=idList,name,due,labels,idShort,shortUrl,closed&members=true&member_fields=fullName&key=#{user.trello_key}&token=#{user.trello_token}&board_lists=open&filter=visible")
+        uri = URI.parse("https://api.trello.com/1/boards/#{board_id}/cards/?fields=idList,name,due,dueComplete,labels,idShort,shortUrl,closed&members=true&member_fields=fullName&key=#{user.trello_key}&token=#{user.trello_token}&board_lists=open&filter=visible")
         response = Net::HTTP.get_response(uri)
 
         if response.is_a?(Net::HTTPSuccess)
@@ -34,6 +34,7 @@ class BoardsController < ApplicationController
               "Description",
               "Points",
               "Due",
+              "DueComplete",
               "Members",
               "Labels",
               "Card #",
@@ -47,6 +48,7 @@ class BoardsController < ApplicationController
                 "-",
                 "-",
                 item["due"].present? ? DateTime.parse(item["due"]).strftime("%d/%m/%Y") : "-",
+                item["dueComplete"],
                 item["members"].map{|x| x["fullName"]}.join(","),
                 item["labels"].map{|x| x["name"]}.join(","),
                 item["idShort"],
